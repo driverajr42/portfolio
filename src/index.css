@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Lato&display=swap');
 
 * html {
   padding: 0;
@@ -8,9 +8,13 @@
 
 body {
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Karla', sans-serif;
   
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif
+}
+
 
 @tailwind base;
 @tailwind components;

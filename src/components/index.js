@@ -1,2 +1,0 @@
-// This file holds all components used in this project. Allowing me to use components when needed while writing one line of code.
-export { default as Header } from './Header'

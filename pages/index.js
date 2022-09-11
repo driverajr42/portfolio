@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
 
       
-      <Hero heading='Jungo Digital' message='We provide the hand force for your home.' />
+      <Hero heading="Frontend Developer." message="A frontend developer building things for the web which leads to the success of client's overall product"/>
     </div>
   )
 }

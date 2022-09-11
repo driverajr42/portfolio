@@ -6,9 +6,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        header: "url('public/headerBg.svg')"
-      },
       colors: {
         'primary': '#0A192F',
         'secondary': '#3C978D',

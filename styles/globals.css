@@ -9,3 +9,6 @@ html {
 .hero-img {
 	background-image: url('../public/heroBg.svg');
 }
+.feature-img {
+	background-image: url('../public/Browsers.png');
+}

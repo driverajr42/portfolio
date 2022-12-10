@@ -15,7 +15,7 @@ const Navbar = ({ logoName }) => {
 		<div className="fixed left-0 top-0 w-full z-10 ease-in duration-300">
 			{/* Company Logo */}
 			<div className="max-w-[1240px] m-auto flex justify-between items-center p-4 text-mainTxt">
-				<div className="flex items-center">
+				<div className="flex items-center relative right-4">
 					<CodeOffIcon className="w-10 h-10 text-secondary ml-4" />
 					<Link href="/">
 						<h1 className="font-bold text-accentTwo text-2xl ml-2">

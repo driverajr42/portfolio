@@ -2,50 +2,70 @@ import CloseIcon from '@mui/icons-material/Close';
 import CodeOffIcon from '@mui/icons-material/CodeOff';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
+import styles from '../styles'
 const Navbar = ({ logoName }) => {
 	const [nav, setNav] = useState(false);
+
+	 // These states are to change the background and text colors when user scrolls down
+	 const [color, setColor] = useState('transparent')
+	 const [textColor, setTextColor] = useState('white')
 
 	const handleNav = () => {
 		setNav(!nav);
 	};
 
+	useEffect(()=>{
+        // If user scrolled down the window passed a certain point the background and text color of navbar will change using the following effect
+        const colorChange = () => {
+            if(window.scrollY >= 90 ) {
+                setColor('#fff')
+                setTextColor('#000')
+            } else {
+                setColor('transparent')
+                setTextColor('#fff')
+            } // Else if user is not scrolled down a certain piont than effect will return back to its orignal state
+        }
+        // Telling the window to listen to the scroll
+        window.addEventListener('scroll', colorChange)
+    }, [])
+
 	return (
-		<div className="fixed left-0 top-0 w-full z-10 ease-in duration-300">
+		<div style={{backgroundColor:`${color}` }} className={`${styles.navbar}}`}>
 			{/* Company Logo */}
-			<div className="max-w-[1240px] m-auto flex justify-between items-center p-4 text-mainTxt">
-				<div className="flex items-center relative right-4">
-					<CodeOffIcon className="w-10 h-10 text-secondary ml-4" />
+			<div className={styles.logoBox}>
+				<div className={styles.companyLogo}>
+					<CodeOffIcon className={styles.logoIcon} />
 					<Link href="/">
-						<h1 className="font-bold text-accentTwo text-2xl ml-2">
+						<h1 style={{color:`${textColor}` }} className={styles.companyName}>
 							{logoName}
 						</h1>
 					</Link>
 				</div>
 
-				<ul className="hidden sm:flex text-xl ">
-					<li className="p-4 text-accentTwo hover:text-secondary">
+				<ul style={{Color:`${textColor}` }} className={styles.navBoxMd}>
+					<li className={styles.navItemsMd}>
 						<Link href="/">Home</Link>
 					</li>
-					<li className="p-4 text-accentTwo hover:text-secondary">
+					<li className={styles.navItemsMd}>
 						<Link href="/#gallery">Gallery</Link>
 					</li>
-					<li className="p-4 text-accentTwo hover:text-secondary">
+					<li className={styles.navItemsMd}>
 						<Link href="/portfolio">Work</Link>
 					</li>
-					<li className="p-4 text-accentTwo hover:text-secondary">
+					<li className={styles.navItemsMd}>
 						<Link href="/contact">Contact</Link>
 					</li>
 				</ul>
 
 				{/* Mobile Menu Button */}
-				<div onClick={handleNav} className="block sm:hidden z-10">
+				<div onClick={handleNav} className={styles.mobileMenuBox}>
 					{/* If navbar is open show the close icon. Else show the menu icon */}
 					{nav ? (
-						<CloseIcon className="w-8 h-8 text-secondary" />
+						<CloseIcon  className={styles.closeIcon} style={{color:`${textColor}` }} />
 					) : (
-						<MenuIcon className="w-8 h-8 text-secondary" />
+						<MenuIcon className={styles.menuIcon} style={{color:`${textColor}` }}/>
 					)}
 				</div>
 
@@ -54,21 +74,21 @@ const Navbar = ({ logoName }) => {
 				<div
 					className={
 						nav
-							? 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-primary text-center ease-in duration-300'
-							: 'sm:hidden absolute top-[100vh] left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-primary text-centerhover:text-secondary ease-in duration-300'
+							? styles.mobileNav
+							: styles.openNav
 					}
 				>
 					<ul>
-						<li className="p-4 text-4xl text-secondary hover:text-gray-500">
+						<li className={styles.mobileNavItems}>
 							<Link href="/">Home</Link>
 						</li>
-						<li className="p-4 text-4xl text-secondary hover:text-gray-500">
+						<li className={styles.mobileNavItems}>
 							<Link href="/#gallery">Gallery</Link>
 						</li>
-						<li className="p-4 text-4xl text-secondary hover:text-gray-500">
+						<li className={styles.mobileNavItems}>
 							<Link href="/portfolio">Work</Link>
 						</li>
-						<li className="p-4 text-4xl text-secondary hover:text-gray-500">
+						<li className={styles.mobileNavItems}>
 							<Link href="/contact">Contact</Link>
 						</li>
 					</ul>

@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { Spotlight } from './ui/Spotlight'
-import { TextGenerateEffect } from './ui/TextGenerateEffect'
+// import { TextGenerateEffect } from './ui/TextGenerateEffect'
+import { TypewriterEffect } from './ui/TypewriterEffect'
 import MagicButton from './ui/MagicButton'
 import { FaLocationArrow } from 'react-icons/fa'
 
@@ -30,10 +31,33 @@ const Hero = () => {
            *
            *  change md:text-6xl, add more responsive code
            */}
-          <TextGenerateEffect
+          {/* <TextGenerateEffect
             words="Transforming Concepts into Seamless User Experiences"
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
-          />
+          /> */}
+
+          <TypewriterEffect words={[
+             {
+                text: "Transforming",
+              },
+              {
+                text: "Concepts",
+              },
+              {
+                text: "Into",
+              },
+              {
+                text: "Seamless",
+              },
+              {
+                text: "User",
+                className: "text-purple dark:text-purple",
+              },
+              {
+                text: "Experience.",
+                className: "text-purple dark:text-purple",
+              },
+          ]} className='text-center text-[40px] md:text-5xl lg:text-6xl'/>
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
             Hi! I&apos;m Dennis, a Front-End Developer based in Cleveland, OH.

@@ -1,6 +1,7 @@
 import { cn } from "@/utils/cn";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import{ GlobeDemo} from "./GridGlobe"
+import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 export const BentoGrid = ({
   className,
@@ -90,11 +91,36 @@ export const BentoGridItem = ({
           <div className="font-sans font-bold text-lg lg:text-3xl mx-w-96 z-10">
           {title}
         </div>
-        </div>
+      
 
         {id === 2 && <GlobeDemo />}
 
+        {id === 3 && (
+            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-righht-2"> 
+                <div className="flex flex-col gap-3 lg:gap-8">
+                    {['HTML', 'CSS', 'JavaScript'].map((item) => (
+                        <span key={item} className="py-2 lg:py-4 lg_px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]">
+                            {item}
+                        </span>
+                    ))}
+                    <span className="py-4 px-3 rounded-lg text-center bg-[#10132E]"/>
+
+                </div>
+                <div className="flex flex-col gap-3 lg:gap-8">
+                <span className="py-4 px-3 rounded-lg text-center bg-[#10132E]"/>
+                    {['Nextjs', 'Tailwindcss', 'Typescript'].map((item) => (
+                        <span key={item} className="py-2 lg:py-4 lg_px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]">
+                            {item}
+                        </span>
+                    ))}
+                   
+
+                </div>
+            </div>
+        )}
+
         </div>
+    </div>
     </div>
   );
 };
